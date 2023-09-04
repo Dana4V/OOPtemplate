@@ -49,23 +49,23 @@ function draw() {
   // zwarte achtergrond
   background(0, 0, 0);
 
-  for (var teller = 0)
+  for (var teller = 0; teller < xPosities.length; teller++) 
   // teken
   noStroke;
   fill(255, 255, 255);
-  rect(x, y, BREEDTE, BREEDTE);
+  rect(xPosities, yPosities, BREEDTE, BREEDTE);
 
   // update positie
-  x = x + speedX;
-  y = y + speedY;
+  xPosities[teller] = xPosities[teller] + Xsnelheden[teller];
+  yPostities[teller] = yPosities[teller] + Ysnelheden[teller];
 
   // stuiter evt. tegen de kanten
-  if (x <= 0 || x + BREEDTE >= width) {
-    speedX = speedX * -1;
+  if (xPosities <= 0 || xPosities + BREEDTE >= width) {
+    Xsnelheden[teller] = Xsnelheden[teller] * -1;
   }
 
-  if (y <= 0 || y + BREEDTE >= height) {
-    speedY = speedY * -1;
+  if (yPosities <= 0 || yPosities + BREEDTE >= height) {
+    Ysnelheden[teller] = Ysnelheden[teller] * -1;
   }
-
+  
 }
